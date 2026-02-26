@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Register.css";
 
 function Register() {
   const [user, setUser] = useState({
@@ -22,11 +21,11 @@ function Register() {
   };
 
   return (
-    <div className="register-container">
-      <div className="register-card">
-        <h2>Register Page</h2>
+    <div style={styles.container}>
+      <div style={styles.card}>
+        <h2 style={styles.title}>Register Page</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={styles.form}>
           <input
             type="text"
             name="name"
@@ -34,6 +33,7 @@ function Register() {
             value={user.name}
             onChange={handleChange}
             required
+            style={styles.input}
           />
 
           <input
@@ -43,6 +43,7 @@ function Register() {
             value={user.email}
             onChange={handleChange}
             required
+            style={styles.input}
           />
 
           <input
@@ -52,13 +53,64 @@ function Register() {
             value={user.password}
             onChange={handleChange}
             required
+            style={styles.input}
           />
 
-          <button type="submit">Register</button>
+          <button type="submit" style={styles.button}>
+            Register
+          </button>
         </form>
       </div>
     </div>
   );
 }
+
+/* ✅ CSS inside React */
+const styles = {
+  container: {
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f4f6f9",
+    fontFamily: "Arial",
+  },
+
+  card: {
+    backgroundColor: "white",
+    padding: "35px",
+    width: "320px",
+    borderRadius: "10px",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+    textAlign: "center",
+  },
+
+  title: {
+    marginBottom: "20px",
+  },
+
+  form: {
+    display: "flex",
+    flexDirection: "column",
+  },
+
+  input: {
+    padding: "10px",
+    margin: "8px 0",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+  },
+
+  button: {
+    marginTop: "15px",
+    padding: "10px",
+    border: "none",
+    backgroundColor: "#28a745",
+    color: "white",
+    borderRadius: "5px",
+    cursor: "pointer",
+    fontSize: "16px",
+  },
+};
 
 export default Register;
