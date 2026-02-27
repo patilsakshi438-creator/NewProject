@@ -1,5 +1,5 @@
 import React from "react";
-import myImage from "./image.jpg";   // put your image inside src folder
+import myImage from "./Image";   // put your image inside src folder
 
 function Image() {
   return (
